@@ -10,10 +10,7 @@ on:
  # A new pull request to the "main" branch.
   pull_request:
    branches: [ "release" ]
- 
- # Allows to trigger the workflow from GitHub interfaces.
-   workflow_dispatch:
- 
+  
 # A single workflow can have multiple jobs.
 jobs: 
  # 'A new job is defined with the name: "build_android" 
@@ -45,9 +42,9 @@ jobs:
         uses: r0adkll/sign-android-release@v1   
         id: sign_app
         with:
-        releaseDirectory: build/app/outputs/bundle/release/
-        signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_FILE_BASE64 }}
-        alias: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}         
-        keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}             
-        
-        keyPassword: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+          releaseDirectory: build/app/outputs/bundle/release/
+          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_FILE_BASE64 }}
+          alias: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}         
+          keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}             
+          
+          keyPassword: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
